@@ -171,8 +171,8 @@ def get_url():
     # for details on which endpoints are for each region.
     region = config.get('auth', 'region')
     host = REGION_MAP[region]
-    return ("wss://{}/speech-to-text/api/v1/recognize"
-           "?model=en-AU_BroadbandModel").format(host)
+    instance_id = REGION_MAP[instance_id]
+    return ("wss://api.{}.speech-to-text.watson.cloud.ibm.com/instances/{}/v1/recognize?model=en-AU_BroadbandModel").format(host, instance_id)
 
 def get_auth():
     config = configparser.RawConfigParser()
